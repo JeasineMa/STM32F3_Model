@@ -89,9 +89,9 @@ SRC_DIR = ../
 
 # SRC files
 # SRC += $(wildcard $(SRC_DIR)../Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/*.c)
-SRC += $(shell find $(SRC_DIR) -name *.c)
-SRC += $(wildcard $(SRC_DIR)../Libraries/STM32F4xx_StdPeriph_Driver/src/*.c)
-# SRC += $(wildcard $(SRC_DIR)../Libraries/STM32F4x7_ETH_Driver/src/*.c)
+SRC += $(wildcard $(SRC_DIR)/src/*.c)
+SRC += $(wildcard $(SRC_DIR)../Libraries/STM32F30x_StdPeriph_Driver/src/*.c)
+SRC += $(wildcard $(SRC_DIR)../Libraries/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c)
 # SRC += $(wildcard $(SRC_DIR)/src/*.c)
 # List C source files here which must be compiled in ARM-Mode.
 # use file-extension c for "c-only"-files
@@ -152,20 +152,9 @@ LINKERSCRIPTPATH = ./
 #     Each directory must be seperated by a space.
 #EXTRAINCDIRS = ../.. ../../utils ../../lib_src
 EXTRAINCDIRS = $(SRC_DIR)/inc
-EXTRAINCDIRS += $(SRC_DIR)/src/crypto
-EXTRAINCDIRS += $(SRC_DIR)/src/thinpad
-EXTRAINCDIRS += $(SRC_DIR)/src/network
-EXTRAINCDIRS += $(SRC_DIR)/src/network/HTTPServer
 EXTRAINCDIRS += $(SRC_DIR)../Libraries/STM32F30x_StdPeriph_Driver/inc 
-EXTRAINCDIRS += $(SRC_DIR)../Libraries/STM32F4x7_ETH_Driver/inc 
 EXTRAINCDIRS += $(SRC_DIR)../Libraries/CMSIS/Device/ST/STM32F30x/Include
 EXTRAINCDIRS += $(SRC_DIR)../Libraries/CMSIS/Include
-EXTRAINCDIRS += $(SRC_DIR)../Utilities/Third_Party/lwip-1.4.1/src/include/lwip
-EXTRAINCDIRS += $(SRC_DIR)../Utilities/Third_Party/lwip-1.4.1/src/include/ipv4
-EXTRAINCDIRS += $(SRC_DIR)../Utilities/Third_Party/lwip-1.4.1/src/include
-EXTRAINCDIRS += $(SRC_DIR)../Utilities/Third_Party/lwip-1.4.1/port/STM32F4x7
-EXTRAINCDIRS += $(SRC_DIR)../Utilities/Third_Party/lwip-1.4.1/port/STM32F4x7/Standalone
-EXTRAINCDIRS += $(SRC_DIR)../Utilities/Third_Party/FatFs_R0.10c
 
 # List any extra directories to look for library files here.
 #     Each directory must be seperated by a space.

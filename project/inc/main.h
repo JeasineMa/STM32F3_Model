@@ -31,8 +31,6 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f30x.h"
-#include "stm32303c_eval.h"
-#include "stm32303c_eval_lcd.h"
 #include <stdio.h>
 
 /* Exported types ------------------------------------------------------------*/
@@ -40,7 +38,6 @@
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 void Delay(__IO uint32_t nTime);
-void Display_Init(void);
 void Display(void);
 
 #endif /* __MAIN_H */

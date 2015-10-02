@@ -70,9 +70,6 @@ int main(void)
   /* Enable ADC1 clock */
   RCC_AHBPeriphClockCmd(RCC_AHBPeriph_ADC12, ENABLE);
   
-  /* LCD Display init  */
-  Display_Init();
-      
   /* Setup SysTick Timer for 1 µsec interrupts  */
   if (SysTick_Config(SystemCoreClock / 1000000))
   { 
@@ -177,50 +174,12 @@ void Display(void)
   v=(ADC1ConvertedVoltage)/1000;
   mv = (ADC1ConvertedVoltage%1000)/100;
   sprintf((char*)text,"   ADC = %d,%d V   ",v,mv);
-  /* Set the LCD Back Color and Text Color*/
-  LCD_SetBackColor(White);
-  LCD_SetTextColor(Blue);
+
+  // /* Set the LCD Back Color and Text Color*/
+  // LCD_SetBackColor(White);
+  // LCD_SetTextColor(Blue);
   
-  LCD_DisplayStringLine(LINE(6),text);
-}
-
-/**
-  * @brief  Display Init (LCD)
-  * @param  None
-  * @retval None
-  */
-void Display_Init(void)
-{
-  /* Initialize the LCD */
-  STM32303C_LCD_Init();
-
-  /* Clear the LCD */ 
-  LCD_Clear(White);
-
-  /* Set the LCD Text size */
-  LCD_SetFont(&Font8x12);
-
-  /* Set the LCD Back Color and Text Color*/
-  LCD_SetBackColor(Blue);
-  LCD_SetTextColor(White);
-
-  /* Display */
-  LCD_DisplayStringLine(LINE(0x13), (uint8_t*)"  ADC conversion example (Basic example)");
-
-  /* Set the LCD Text size */
-  LCD_SetFont(&Font16x24);
-
-  LCD_DisplayStringLine(LINE(0), (uint8_t*)"STM32F303x CortexM4 ");
-  LCD_DisplayStringLine(LINE(1), (uint8_t*)"   STM32303C-EVAL   ");
-  
-  /* Set the LCD Back Color and Text Color*/
-  LCD_SetBackColor(White);
-  LCD_SetTextColor(Blue);
-
-  /* Display */
-  LCD_DisplayStringLine(LINE(3),(uint8_t*)"  Turn RV2(PC.01)    ");
-  LCD_DisplayStringLine(LINE(4),(uint8_t*)"   Potentiometer     ");
-     
+  // LCD_DisplayStringLine(LINE(6),text);
 }
 
 #ifdef  USE_FULL_ASSERT
